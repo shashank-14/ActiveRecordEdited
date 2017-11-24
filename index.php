@@ -1,13 +1,13 @@
 <?php
 
-//use classes\database\dbConn;
+use classes\database\dbConn;
 use classes\htmldisplay\display;
 use classes\collection\accounts;
 use classes\collection\collection;
-//use classes\collection\todos;
+use classes\collection\todos;
 use classes\model\account;
 use classes\model\model;
-//use classes\model\todo;
+use classes\model\todo;
 
 
 class Manage{
@@ -95,7 +95,7 @@ class main{
     $display.= '<br>';
     display::printThis($display);
      
-    /*$display='';
+    $display='';
     $display.= '<h3>Existing records in TODOS table.</h3><br>';
      display::printThis($display);
      todos::findAll();
@@ -105,7 +105,7 @@ class main{
      $display='';
      $display= '<h3>Creating id=13 in todos table.</h3><br>';
      display::printThis($display);
-     $record = new todo();
+     $record = new classes\model\todo;
      $record->id='';
      $record->owneremail='abc@gmail.com';
      $record->ownerid='7';
@@ -130,7 +130,7 @@ class main{
      $display.= '<br>';
      $display.= '<h3>Updating details of id=13.</h3><br>';
      display::printThis($display);
-     $record = new todo();
+     $record = new classes\model\todo;
      $record->id=13;
      $record->owneremail='xyz@gmail.com';
      $record->ownerid='2';
@@ -145,17 +145,17 @@ class main{
      $display= '<br>';
     display::printThis($display);
      
-     $display='';
+    $display='';
     $display.= '<h3>To delete id=13 from todos.</h3><br>';
     display::printThis($display);
-    $record=new todo();
+    $record=new classes\model\todo;
     $record->id=13;
     $record->delete();
     $display= 'After Delete id=13.<br>';
     display::printThis($display);
     todos::findAll();
     $display= '<br>';
-     display::printThis($display);*/
+     display::printThis($display);
     
     }
    

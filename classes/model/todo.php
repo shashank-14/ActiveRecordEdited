@@ -1,5 +1,6 @@
 <?php
 namespace classes\model;
+use classes\model\model;
 
 class todo extends model {
   
