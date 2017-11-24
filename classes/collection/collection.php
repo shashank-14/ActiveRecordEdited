@@ -1,5 +1,9 @@
 <?php
-
+namespace classes\collection;
+use classes\collection\accounts;
+use classes\database\dbConn;
+use \PDO;
+use classes\htmldisplay\display;
 
 class collection {
     static public function create() {
@@ -10,11 +14,11 @@ class collection {
     static public function findAll() {
         $db = dbConn::getConnection();
         $tableName = get_called_class();
+        $tableName=str_replace("classes\collection\\","",$tableName);
         $sql = 'SELECT * FROM ' . $tableName;
         $statement = $db->prepare($sql);
         $statement->execute();
-        $class = static::$modelName;
-        $statement->setFetchMode(PDO::FETCH_CLASS, $class);
+        $statement->setFetchMode();
         $recordsSet =  $statement->fetchAll(PDO::FETCH_ASSOC);
         self::displayTable($recordsSet,$tableName);
         }
@@ -45,12 +49,12 @@ class collection {
     static public function findOne($id) {
         $db = dbConn::getConnection();
         $tableName = get_called_class();
+        $tableName=str_replace("classes\collection\\","",$tableName);
         $sql = 'SELECT * FROM ' . $tableName . ' WHERE id =' . $id;
         $statement = $db->prepare($sql);
         $statement->execute();
-        $class = static::$modelName;
-        $statement->setFetchMode(PDO::FETCH_CLASS, $tableName);
-        $recordsSet =  $statement->fetchAll();
+        $statement->setFetchMode();
+        $recordsSet =  $statement->fetchAll(PDO::FETCH_ASSOC);
         self::displayTable($recordsSet,$tableName);
     }
 }

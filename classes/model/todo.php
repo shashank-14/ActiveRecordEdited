@@ -1,4 +1,6 @@
 <?php
+namespace classes\model;
+
 class todo extends model {
   
   protected static $modelName = 'todo';

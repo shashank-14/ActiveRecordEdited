@@ -1,4 +1,9 @@
 <?php
+namespace classes\model;
+use classes\model\account;
+use classes\database\dbConn;
+use \PDO;
+use classes\htmldisplay\display;
 
 class model {
     protected $tableName;
@@ -12,6 +17,7 @@ class model {
     }
     private function insert() {
         $modelName1=static::$modelName;
+        $modelName1=__NAMESPACE__."\\".$modelName1;
         $tableName = $modelName1::tableName();
         $this->id=13;
         $array = get_object_vars($this);
@@ -29,6 +35,7 @@ class model {
     }
     private function update() {
         $modelName1=static::$modelName;
+        $modelName1=__NAMESPACE__."\\".$modelName1;
         $tableName = $modelName1::tableName();
         $array = get_object_vars($this);
         array_pop($array);
@@ -48,6 +55,7 @@ class model {
     }
     public function delete() {
         $modelName1=static::$modelName;
+        $modelName1=__NAMESPACE__."\\".$modelName1;
         $tableName = $modelName1::tableName();
         $sql= 'delete from '.$tableName.' where id='.$this->id;
         $db = dbConn::getConnection();

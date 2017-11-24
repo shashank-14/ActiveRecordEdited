@@ -1,0 +1,10 @@
+<?php
+namespace classes;
+
+class display{
+	public static function printThis($text){
+		echo $text;
+	}
+}
+
+?>

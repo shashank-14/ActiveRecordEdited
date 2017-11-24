@@ -1,12 +1,24 @@
 <?php
 
+//use classes\database\dbConn;
+use classes\htmldisplay\display;
+use classes\collection\accounts;
+use classes\collection\collection;
+//use classes\collection\todos;
+use classes\model\account;
+use classes\model\model;
+//use classes\model\todo;
+
+
 class Manage{
   public static function autoload($class){
-    include $class.'.php';
+    $class=str_replace("\\","/",$class).".php";
+    include $class;
   }
 }
 
 spl_autoload_register(array('Manage','autoload'));
+
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
@@ -26,7 +38,7 @@ class main{
      $display='';
      $display= '<h3>Creating new id=13 in accounts table.</h3><br>';
      display::printThis($display);
-     $record = new account();
+     $record = new classes\model\account;
      $record->id='';
      $record->email='abc@gmail.com';
      $record->fname='abc';
@@ -52,7 +64,7 @@ class main{
      $display.= '<br>';
      $display.= '<h3>updating details of id=13.</h3><br>';
      display::printThis($display);
-     $record = new account();
+     $record = new classes\model\account;
      $record->id=13;
      $record->email='xyz@gmail.com';
      $record->fname='qqq';
@@ -68,10 +80,10 @@ class main{
      $display= '<br>';
      display::printThis($display);
      
-     $display='';
+  $display='';
     $display= '<h3>To delete id=13 from accounts.</h3><br>';
     display::printThis($display);
-    $record=new account();
+    $record=new classes\model\account;
     $record->id=13;
     $record->delete();
     $display= 'After Delete id=13.<br>';
@@ -83,7 +95,7 @@ class main{
     $display.= '<br>';
     display::printThis($display);
      
-     $display='';
+    /*$display='';
     $display.= '<h3>Existing records in TODOS table.</h3><br>';
      display::printThis($display);
      todos::findAll();
@@ -143,7 +155,7 @@ class main{
     display::printThis($display);
     todos::findAll();
     $display= '<br>';
-     display::printThis($display);
+     display::printThis($display);*/
     
     }
    
