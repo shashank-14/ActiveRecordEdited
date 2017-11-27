@@ -6,7 +6,7 @@ use classes\database\dbConn;
 use \PDO;
 use classes\htmldisplay\display;
 
-class model {
+abstract class model {
     protected $tableName;
     public function save()
     {

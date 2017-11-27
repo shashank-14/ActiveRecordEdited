@@ -2,7 +2,7 @@
 namespace classes\collection;
 use classes\collection\collection;
 
-class todos extends collection {
+final class todos extends collection {
   protected static $modelName = 'todo';
   
   public static function tableName1(){

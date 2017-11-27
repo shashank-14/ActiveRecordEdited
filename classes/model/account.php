@@ -2,7 +2,7 @@
 namespace classes\model;
 use classes\model\model;
 
-class account extends model {
+final class account extends model {
   
   protected static $modelName = 'account';
   public $id;

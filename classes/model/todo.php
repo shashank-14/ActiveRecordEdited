@@ -2,7 +2,7 @@
 namespace classes\model;
 use classes\model\model;
 
-class todo extends model {
+final class todo extends model {
   
   protected static $modelName = 'todo';
   public $id;
